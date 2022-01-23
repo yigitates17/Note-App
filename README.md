@@ -22,11 +22,11 @@ If they wish, users can view only their notes by clicking 'View Notes'
 ![5](https://user-images.githubusercontent.com/69986916/150701391-85d9a9e7-bf72-4fc8-9f3c-70d23c0db6a5.JPG)
 
 # REQUIREMENTS
-Flask==2.0.1
-flask_login==0.5.0
-Flask_SQLAlchemy==2.5.1
-flask_wtf==1.0.0
-SQLAlchemy==1.4.25
-timeago==1.0.15
-Werkzeug==2.0.1
-WTForms==2.3.3
+- Flask==2.0.1
+- flask_login==0.5.0
+- Flask_SQLAlchemy==2.5.1
+- flask_wtf==1.0.0
+- SQLAlchemy==1.4.25
+- timeago==1.0.15
+- Werkzeug==2.0.1
+- WTForms==2.3.3
