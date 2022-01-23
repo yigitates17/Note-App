@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Notes{% endblock %}
+{% block content %}
+
+<div class="container col-10">
+    <br>
+    <br>
+
+    <h1 class="display-4">Notes    <a type="button" href="/add_notes" style="color: #ffffff" class="btn btn-primary">Add Note</a>
+</h1>
+
+    <hr>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alter-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %} {% endif %} {% endwith %}
+    {% for note in user.notes|sort(attribute='date', reverse=True) %}
+    <div class="card">
+        <div class="card-body">
+            <button type="button" class="close"><a href="delete_note/{{ note.id }}" class="d-flex justify-content-end" style="color:#343434"><span aria-hidden="true">&times;</span></a></button>
+            <a style="text-decoration: none" href="/notes/{{ note.id }}">
+            <p class="card-text">
+                <medium class="text-muted">u/{{ user.username }}</medium>
+            </p>
+            <h5 class="card-title" style="color: #151414">{{ note.title }}</h5>
+            <p class="card-text" style="color: #2d2d2d">{{ note.data[0:150] }}{% if note.data|length > 100 %}...{% endif %}</p>
+            <p class="card-text"><small class="text-muted">{{ note.date | timeAgo }}</small></p>
+</a>
+        </div>
+    </div>
+
+    <br>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Note{% endblock%}
+{% block content %}
+<div class="container">
+    <br>
+    <br>
+    <h3 class="display-4">{{ the_note.title }}        {% if the_note.user_id == current_user.id %}<a type="button"
+                                                                              href="/edit_note/{{ the_note.id }}"
+                                                                              style="color: #ffffff"
+                                                                              class="btn btn-primary">Edit Note</a>{% endif %}</h3>
+    <hr>
+    <div class="lead">{{ the_note.data }}</div>
+</div>
+{% endblock %}
